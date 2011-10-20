@@ -1,0 +1,27 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Owner</th>
+    <th>Loaned</th>
+    <th>Expiration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.owner %></td>
+    <td><%= item.loaned %></td>
+    <td><%= item.expiration %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

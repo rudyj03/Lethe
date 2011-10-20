@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  owner: 1
+  loaned: false
+  expiration: 2011-10-19
+
+two:
+  owner: 1
+  loaned: false
+  expiration: 2011-10-19

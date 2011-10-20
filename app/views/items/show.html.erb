@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Owner:</b>
+  <%= @item.owner %>
+</p>
+
+<p>
+  <b>Loaned:</b>
+  <%= @item.loaned %>
+</p>
+
+<p>
+  <b>Expiration:</b>
+  <%= @item.expiration %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
