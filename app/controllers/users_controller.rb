@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        sign_in @user
         flash[:success] = "Welcome to Lethe!";
         format.html { redirect_to(@user) }
 
