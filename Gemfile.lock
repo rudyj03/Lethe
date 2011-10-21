@@ -32,6 +32,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    gravatar_image_tag (1.0.0)
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -79,6 +80,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  gravatar_image_tag
   httparty
   rails (= 3.0.10)
   sqlite3
