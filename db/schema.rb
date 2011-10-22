@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020043419) do
+ActiveRecord::Schema.define(:version => 20111022032650) do
 
   create_table "items", :force => true do |t|
     t.integer  "owner"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20111020043419) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
+    t.boolean  "admin",              :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
