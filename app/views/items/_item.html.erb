@@ -1,0 +1,11 @@
+<!--This is rendering twice when it was placed inside users/show.html.erb-->
+<tr>
+    <th>Items owned</th>
+</tr>
+    <% @items.each do |item| %>
+        <tr>
+          <td class="item">
+                <span class="iteminfo"><%= item.description %></span>
+            </td>
+        </tr>
+    <%end%>

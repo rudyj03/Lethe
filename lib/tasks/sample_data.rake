@@ -6,8 +6,8 @@ namespace :db do
                          :email => "rudyj03@gmail.com",
                          :password => "triO4553!+123",
                          :password_confirmation => "triO4553!+123")
-    User.create!(:name => "Example User",
-                 :email => "example@railstutorial.org",
+    User.create!(:name => "Tester",
+                 :email => "tester@test.com",
                  :password => "foobar",
                  :password_confirmation => "foobar")
     admin.toggle!(:admin)

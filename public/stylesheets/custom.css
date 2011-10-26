@@ -1,5 +1,5 @@
 .container {
-  width: 710px;
+  width: 1200px;
   margin-left:auto;
   margin-right:auto;
 }
@@ -114,7 +114,7 @@ table.profile {
 }
 
 td.main {
-  width: 70%;
+  width: 25%;
   padding: 1em;
 }
 
@@ -193,5 +193,73 @@ ul.users {
 
 .users li {
   list-style: none;
+}
+
+/*Items */
+
+h1.item {
+  margin-bottom: 0.3em;
+}
+
+table.items {
+  margin-top: 1em;
+}
+
+table.items th
+{
+    font-size: 70%;
+    font-weight: normal;
+    width: 50px;
+}
+table.items tr {
+  height: 70px;
+}
+
+table.items tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.items tr td.item {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.items tr td.item span.iteminfo {
+  display: block;
+  font-size: 70%;
+  color: #009900;
+}
+
+a.deletelink {
+  color: red;
+  font-size: 70%
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+div.user_info span.items {
+  font-size: 80%;
+}
+
+form.new_item {
+  margin-bottom: 2em;
+}
+
+form.new_item textarea {
+  height: 4em;
+  margin-bottom: 0;
 }
 

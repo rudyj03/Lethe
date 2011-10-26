@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate, :only => [:index, :edit, :update]
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :correct_user, :only => [:edit, :update, :show]
 
   # GET /users
   # GET /users.xml
@@ -19,6 +19,13 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+    @loaned_items = @user.items.select{|item| !item.borrower.empty? && item.borrower != @user.email}
+    #items_without_borrowers = @user.items.select{|item| item.borrower.nil?}
+    #@loaned_items = @user.items.select{|item| !item.borrower.nil?}#.paginate(:page => params[:page])
+    @items = @user.items.select{|item| item.borrower.empty?}#.select{|item| item.borrower.nil?}#.paginate(:page => params[:page])
+    @borrowed_items = Item.find_all_by_borrower(@user.email, :order => :expiration)
+
+    puts @borrowed_items
     @title = @user.name
 
     respond_to do |format|
@@ -93,10 +100,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def authenticate
-    deny_access unless signed_in?
-  end
 
   def correct_user
     @user = User.find(params[:id])

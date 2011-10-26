@@ -1,0 +1,18 @@
+<%= form_for @item do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+ <div class="field">
+    <%= f.label "Borrower's Email" %><br />
+    <%= f.text_field :borrower %>
+  </div>
+  <div class="field">
+    <%= f.label :expiration %><br />
+    <%= f.date_select :expiration, :start_year => Date.today.year, :start_month => Date.today.month %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
