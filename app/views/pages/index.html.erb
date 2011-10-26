@@ -1,21 +1,9 @@
-<% if signed_in? %>
-  <table class="front" summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h1 class="item">Add an Item</h1>
-        <%= render 'shared/item_form' %>
-      </td>
-      <td class="sidebar">
-        <%= render 'shared/user_info' %>
-      </td>
-    </tr>
-  </table>
-<% else %>
-    <h1>Lethe</h1>
-    <p>
-      Never lose track of what's been loaned to whom ever again!
+<h1 align="center">Lethe</h1>
+    <p align="center">
+      <b>
+        Never lose track of your stuff again!
+      </b>
     </p>
 
     <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
-<% end %>
 

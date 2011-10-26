@@ -4,8 +4,6 @@
   <tr>
     <td class="main">
       <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
         <% unless @loaned_items.empty?%>
         <table class="items" summary="User Items">
           <tr>
@@ -58,9 +56,11 @@
       </h1>
     </td>
     <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br/>
-      <strong>Items owned</strong> <%= @user.items.count%>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <strong>Total Items: </strong> <%= @user.items.count%>
     </td>
   </tr>
 </table>
