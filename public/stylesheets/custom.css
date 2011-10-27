@@ -18,10 +18,11 @@ header img {
 }
 
 section {
-  margin-top: 1em;
-  font-size: 120%;
-  padding: 20px;
-  background: #fff;
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 120%;
+    height: 40%;
+    margin-top: 1em;
+    padding: 20px;
 }
 
 section h1 {
@@ -118,11 +119,13 @@ td.main {
   padding: 1em;
 }
 
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
+div.sidebar {
+    background: none repeat scroll 0 0 #FFFFCC;
+    margin-left: 53%;
+    margin-top: 13px;
+    padding: 1em;
+    position: absolute;
+    vertical-align: top;
 }
 
 .profile img.gravatar {
@@ -195,41 +198,41 @@ ul.users {
   list-style: none;
 }
 
+li
+{
+    list-style: none;
+}
+
 /*Items */
 
 h1.item {
   margin-bottom: 0.3em;
 }
 
-table.items {
-  margin-top: 1em;
+div.itemsdiv
+{
+    position:relative;
+    float:left;
+    margin-top: 1em;
+    margin-left:auto;
+    margin-right:auto;
 }
 
-table.items th
+div.navigation
 {
-    font-size: 70%;
-    font-weight: normal;
-    width: 50px;
-}
-table.items tr {
-  height: 70px;
+    position:relative;
+    margin-top: 350px;
 }
 
 table.items tr td.gravatar {
   border-top: 1px solid #ccc;
   vertical-align: top;
-  width: 50px;
+  width: 70px;
 }
 
-table.items tr td.item {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  padding-top: 10px;
-}
-
-table.items tr td.item span.iteminfo {
+span.iteminfo {
   display: block;
-  font-size: 70%;
+  font-size: 100%;
   color: #009900;
 }
 
@@ -263,3 +266,41 @@ form.new_item textarea {
   margin-bottom: 0;
 }
 
+/* Subsection Tabs
+--------------------*/
+ul.subsection_tabs {
+	list-style:none;
+	margin:0 0 5px 0;
+	padding:0;
+	clear:both;
+	border-bottom:1px solid #ccc;
+	height:20px;
+	clear:both;
+}
+
+ul.subsection_tabs li.tab {
+	float:left;
+	margin-right:250px;
+	text-align:center;
+}
+
+ul.subsection_tabs li.tab a {
+	display:block;
+	height:20px;
+	padding:0 6px 0 6px;
+	background-color:#fff;
+	color:#666;
+	width:80px;
+}
+
+ul.subsection_tabs li.tab a:hover {
+	color:#666;
+}
+
+ul.subsection_tabs li.tab a.active {
+	background-color:#ddd;
+}
+
+ul.subsection_tabs li.source_code {
+	float:right;
+}

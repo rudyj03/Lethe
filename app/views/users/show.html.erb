@@ -1,72 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
-      <h1>
-        <% unless @loaned_items.empty?%>
-        <table class="items" summary="User Items">
-          <tr>
-            <th>Loaned out</th>
-          </tr>
-          <% @loaned_items.each do |item| %><tr>
-              <td class="item">
-                    <span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span>
-               </td>
-            </tr>
-        <%end%>
-        </table>
-         <%end%>
-      </h1>
-    </td>
-    <td class="main">
-      <h1>
-        <% unless @items.empty? %>
-        <table class="items" summary="User Items">
-          <tr>
-            <th>Loanable</th>
-        </tr>
-            <% @items.each do |item| %>
-                <tr>
-                  <td class="item">
-                        <span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span>
-                   </td>
-                </tr>
-            <%end%>
-        </table>
-        <% end %>
-      </h1>
-    </td>
-    <td class="main">
-      <h1>
-        <% unless @borrowed_items.nil? || @borrowed_items.empty? %>
-        <table class="items" summary="User Items">
-          <tr>
-            <th>Borrowed</th>
-        </tr>
-            <% @borrowed_items.each do |item| %>
-                <tr>
-                  <td class="item">
-                        <span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span>
-                   </td>
-                </tr>
-            <%end%>
-        </table>
-        <% end %>
-      </h1>
-    </td>
-    <td class="sidebar round">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <strong>Total Items: </strong> <%= @user.items.count%>
-    </td>
-  </tr>
-</table>
 
-<% if current_user?(@user) %>
-<%= link_to 'Add Item', new_item_path%> |
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>
-<%= link_to 'Back', users_path %>
+<!-- example 1 -->
+<ul id="tabs_example_one" class="subsection_tabs">
+    <li class="tab"><a href="#loaned">Loaned</a></li>
+    <li class="tab"><a href="#loanable">Loanable</a></li>
+    <li class="tab"><a href="#borrowed">Borrowed</a></li>
+</ul>
+
+<div id = "loaned"class="itemsdiv round">
+   <table class="items">
+    <tr>
+        <% @loaned_items.each do |item| %><tr>
+            <td><span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span></td>
+        <%end%>
+    </tr>
+    </table>
+</div>
+
+<div id="loanable" class="itemsdiv round">
+       <table class="items">
+    <tr>
+        <% @items.each do |item| %><tr>
+            <td><span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span></td>
+        <%end%>
+    </tr>
+    </table>
+</div>
+
+<div id="borrowed" class="itemsdiv round">
+   <table class="items">
+    <tr>
+        <% @borrowed_items.each do |item| %><tr>
+            <td><span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span></td>
+        <%end%>
+    </tr>
+    </table>
+</div>
+
+
+<div class="sidebar round">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <strong>Total Items: </strong> <%= @user.items.count%>
+</div>
+
+<div class=navigation>
+    <% if current_user?(@user) %>
+    <%= link_to 'Add Item', new_item_path%> |
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <% end %>
+    <%= link_to 'Back', users_path %>
+</div>
