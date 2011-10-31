@@ -30,6 +30,20 @@ class UserMailer < ActionMailer::Base
       end
   end
 
+  def returned_notification_email(item)
+    @item = item
+    @loaner = User.find_by_email(item.user.email)
+    borrower = User.find_by_email(item.borrower)
+    if(!borrower.nil?)
+      @borrower_name = borrower.name
+    else
+      @borrower_name = item.borrower
+    end
+
+    mail(:to => @loaner.email, :subject => "#{item.description} has been returned to you!")
+
+  end
+
   private
 
   def item_expiry_date_in_days(item)

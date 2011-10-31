@@ -44,7 +44,7 @@
     <%= gravatar_for @user %>
     <%= @user.name %>
   </h1>
-  <strong>Total Items: </strong> <%= @user.items.count%>
+  <strong>Total Items: </strong> <%= @loaned_items.count + @items.count + @borrowed_items.count%>
 </div>
 
 <div class=navigation>

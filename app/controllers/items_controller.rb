@@ -71,6 +71,9 @@ class ItemsController < ApplicationController
   def return
     @item = Item.find(params[:id])
 
+    UserMailer.returned_notification_email(@item).deliver
+
+
     if(@item.update_attribute(:borrower, ""))
       redirect_to(root_path, :notice => "Thank you for returning #{@item.description}")
     else
