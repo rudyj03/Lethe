@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Hi, just wanted to let you know that <%=@loaner.name%> just loaned you <%=@item.description %> for <%=distance_of_time_in_words(Date.today, @item.expiration) %>.
+      Login to http://lethe.heroku.com today to see all items you've been loaned, and loan items to others!
+     <br/>
+    </p>
+    <p>Thanks for using Lethe and have a great day!</p>
+  </body>
+</html>

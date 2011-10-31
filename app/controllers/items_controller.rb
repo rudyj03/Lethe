@@ -22,6 +22,11 @@ class ItemsController < ApplicationController
   def create
 
     @item = Item.new(params[:item])
+
+    if(!@item.borrower.nil? && @item.borrower != "")
+       UserMailer.loaned_notification_email(current_user, @item).deliver
+    end
+
     current_user.items.push @item
 
     respond_to do |format|

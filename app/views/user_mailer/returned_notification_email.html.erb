@@ -5,12 +5,9 @@
   </head>
   <body>
     <p>
-      Hi <%=@loaner.name%>, just wanted to let you know that <%=@borrower_name%> just marked <%= %> as returned.
+      Hi <%=@loaner.name%>, just wanted to let you know that <%=@borrower_name%> just marked <%=@item.description %> as returned.
       Note: if this is not the case, please contact <%=@borrower_name%> or login to http://lethe.heroku.com and re-loan it
      <br/>
-    </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
     </p>
     <p>Thanks for using Lethe and have a great day!</p>
   </body>

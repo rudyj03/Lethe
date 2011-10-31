@@ -44,6 +44,13 @@ class UserMailer < ActionMailer::Base
 
   end
 
+  def loaned_notification_email(user, item)
+    @item = item;
+    @loaner = user;
+
+    mail(:to => item.borrower, :subject => "#{user.name} just loaned you #{item.description}!")
+  end
+
   private
 
   def item_expiry_date_in_days(item)
