@@ -32,7 +32,7 @@
    <table class="items">
     <tr>
         <% @borrowed_items.each do |item| %><tr>
-            <td><span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span></td>
+            <td><span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%=link_to "returned", {:controller => "items", :action => "return", :id=>item}, :class => "deletelink"%></span></td>
         <%end%>
     </tr>
     </table>

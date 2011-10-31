@@ -57,8 +57,6 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
 
-    puts "IN UPDATE BITCH!!! #{@item.borrower}"
-
     respond_to do |format|
       if @item.update_attributes(params[:item])
         format.html { redirect_to(@item)}
@@ -68,6 +66,17 @@ class ItemsController < ApplicationController
         format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def return
+    @item = Item.find(params[:id])
+
+    if(@item.update_attribute(:borrower, ""))
+      redirect_to(root_path, :notice => "Thank you for returning #{@item.description}")
+    else
+      redirect_to(root_path, :notice => "Unable to update #{@item.description} right now")
+    end
+
   end
 
   # DELETE /items/1

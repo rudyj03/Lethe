@@ -11,7 +11,7 @@ Lethe::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/items/:id' => 'items#show'
-
+  match '/items/return/:id' => 'items#return'
   get "items/new"
 
   # The priority is based upon order of creation:

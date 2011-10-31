@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'httparty'
 gem 'gravatar_image_tag'
 gem 'will_paginate'
+gem 'rufus-scheduler'
 
 group :development do
   gem 'faker'

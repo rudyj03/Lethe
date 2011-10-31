@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Hi <%=@borrower_name%>, This is just a reminder to let you know
+      you have <%=pluralize(@days, "day")%> to return <%=@item_description%> to <%=@loaner_name%>.<br/>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for using Lethe and have a great day!</p>
+  </body>
+</html>
