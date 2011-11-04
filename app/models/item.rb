@@ -9,10 +9,16 @@ class Item < ActiveRecord::Base
   validates :borrower, :allow_blank => true,:format =>{:with => email_regex}
   validate :expiration_date_cannot_be_in_the_past
 
+  before_save :lower_case_email
+
   def expiration_date_cannot_be_in_the_past
     if !expiration.blank? and expiration < Date.today
       errors.add(:expiration, "can't be in the past")
     end
+  end
+
+  def lower_case_email
+    self.borrower = borrower.downcase
   end
 
 end

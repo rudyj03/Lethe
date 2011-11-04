@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
-  before_filter :authenticate, :only => [:create, :destroy]
-
+  before_filter :authenticate, :only => [:new, :create, :destroy, :show, :update]
+  before_filter :users_item, :only => [:show, :update, :edit]
   # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
@@ -76,7 +76,20 @@ class ItemsController < ApplicationController
   def return
     @item = Item.find(params[:id])
 
-    UserMailer.returned_notification_email(@item).deliver
+    user = current_user
+    if @item.expiration >= Date.today
+      if user.score.nil?
+        user.score = 0
+      else
+        user.score += 1
+      end
+      if !user.update_attributes(user)
+          puts "USER IS #{user} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        end
+
+    end
+
+    #UserMailer.returned_notification_email(@item).deliver
 
 
     if(@item.update_attribute(:borrower, ""))
@@ -98,4 +111,14 @@ class ItemsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+  def users_item
+    @item = Item.find(params[:id])
+    if !current_user.items.include? @item
+      redirect_to root_path, :notice => "You can not edit an item you do not own."
+    end
+  end
+
 end
