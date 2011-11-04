@@ -23,6 +23,7 @@ section {
     height: 40%;
     margin-top: 1em;
     padding: 20px;
+    position:relative;
 }
 
 section h1 {
@@ -102,6 +103,7 @@ a.signup_button {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
+
 }
 
 /* User show page */
@@ -121,7 +123,7 @@ td.main {
 
 div.sidebar {
     background: none repeat scroll 0 0 #FFFFCC;
-    margin-left: 53%;
+    margin-left: 80%;
     margin-top: 13px;
     padding: 1em;
     position: absolute;
@@ -224,6 +226,22 @@ div.navigation
     margin-top: 350px;
 }
 
+table.items
+{
+    margin: auto;
+    padding-left: 350px;
+}
+
+table.items th
+{
+    font-weight: normal;
+}
+
+td.spaced_td
+{
+    padding-left: 20px
+}
+
 table.items tr td.gravatar {
   border-top: 1px solid #ccc;
   vertical-align: top;
@@ -233,7 +251,7 @@ table.items tr td.gravatar {
 span.iteminfo {
   display: block;
   font-size: 100%;
-  color: #009900;
+  color: #00cccc;
 }
 
 a.deletelink {
@@ -247,10 +265,6 @@ div.user_info img {
 
 div.user_info a {
   text-decoration: none;
-}
-
-div.user_info span.user_name {
-  position: absolute;
 }
 
 div.user_info span.items {
@@ -303,4 +317,17 @@ ul.subsection_tabs li.tab a.active {
 
 ul.subsection_tabs li.source_code {
 	float:right;
+}
+
+span.iteminfo div#tooltip {
+    border:1px solid #000;
+    background-color:#fff;
+    height:15px;
+    width:70px;
+    font-family:"Lucida Grande",Verdana;
+    font-size:10px;
+    color: #3333ff;
+    text-align: center;
+    float: right;
+
 }

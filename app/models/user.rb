@@ -38,8 +38,10 @@ class User < ActiveRecord::Base
 
   private
    def encrypt_password
-      self.salt = make_salt unless has_password?(password)
-      self.encrypted_password = encrypt(password)
+     unless password.nil? && has_password?(password)
+       self.salt = make_salt
+       self.encrypted_password = encrypt(password)
+     end
    end
 
   def lower_case_email

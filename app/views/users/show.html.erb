@@ -11,8 +11,27 @@
 <div id = "loaned"class="itemsdiv round">
    <table class="items">
     <tr>
+      <th>Item</th>
+      <th>Borrower</th>
+      <th>Returned in</th>
+    </tr>
+    <tr>
         <% @loaned_items.each do |item| %><tr>
-            <td><span class="iteminfo"><%= link_to item.description, item, :method => :show %> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%></span></td>
+            <td>
+              <span class="iteminfo">
+                <%= link_to item.description, item, :method => :show, :id => "tooltip_link"%> <%= link_to "delete", item, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{item.description}", :class => "deletelink"%>
+              </span>
+            </td>
+            <td class="spaced_td">
+              <span class="iteminfo">
+                <%= email_or_name(item.borrower) %>
+              </span>
+            </td>
+            <td class="spaced_td">
+              <span class="iteminfo">
+                 <%= distance_of_time_in_words(Date.today, item.expiration) %>
+              </span>
+            </td>
         <%end%>
     </tr>
     </table>
@@ -30,9 +49,28 @@
 
 <div id="borrowed" class="itemsdiv round">
    <table class="items">
+      <tr>
+      <th>Item</th>
+      <th>Owner</th>
+      <th>Return in</th>
+    </tr>
     <tr>
         <% @borrowed_items.each do |item| %><tr>
-            <td><span class="iteminfo"><a><%=item.description%></a> <%=link_to "returned", {:controller => "items", :action => "return", :id=>item}, :class => "deletelink"%></span></td>
+            <td>
+              <span class="iteminfo">
+                <a><%=item.description%></a> <%=link_to "return", {:controller => "items", :action => "return", :id=>item}, :class => "deletelink"%>
+              </span>
+            </td>
+            <td class="spaced_td">
+              <span class="iteminfo">
+                <%= email_or_name(item.user.email) %>
+              </span>
+            </td>
+            <td class="spaced_td">
+              <span class="iteminfo">
+                <%= distance_of_time_in_words(Date.today, item.expiration) %>
+              </span>
+            </td>
         <%end%>
     </tr>
     </table>
@@ -45,6 +83,7 @@
     <%= @user.name %>
   </h1>
   <strong>Total Items: </strong> <%= @loaned_items.count + @items.count + @borrowed_items.count%>
+  <br/>
   <strong>Score: </strong><%=@user.score%>
 </div>
 

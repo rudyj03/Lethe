@@ -76,20 +76,16 @@ class ItemsController < ApplicationController
   def return
     @item = Item.find(params[:id])
 
-    user = current_user
     if @item.expiration >= Date.today
-      if user.score.nil?
-        user.score = 0
+      if current_user.score.nil?
+        current_user.score = 0
       else
-        user.score += 1
+        current_user.score += 1
       end
-      if !user.update_attributes(user)
-          puts "USER IS #{user} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        end
-
+      current_user.update_attribute(:score, current_user.score)
     end
 
-    #UserMailer.returned_notification_email(@item).deliver
+    UserMailer.returned_notification_email(@item).deliver
 
 
     if(@item.update_attribute(:borrower, ""))

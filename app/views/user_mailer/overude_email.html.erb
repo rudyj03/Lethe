@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Hi <%=@borrower_name%>, This is just a reminder to let you know
+      you have <%=@item_description%> is overdue!  Please return it to <%=@loaner_name%> as soon as possible.<br/>
+    </p>
+    <p>
+      Please note that your lending score will go down each day this item is overdue.  Your lending score helps others determine how reliable you are to lend things to.
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for using Lethe and have a great day!</p>
+  </body>
+</html>
