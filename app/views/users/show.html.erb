@@ -9,7 +9,8 @@
 </ul>
 
 <div id = "loaned"class="itemsdiv round">
-   <table class="items">
+  <% if !@loaned_items.nil? && !@loaned_items.empty? %>
+  <table class="items">
     <tr>
       <th>Item</th>
       <th>Borrower</th>
@@ -35,6 +36,9 @@
         <%end%>
     </tr>
     </table>
+   <%else%>
+    <span>You don't have anything currently loaned out.  You can loan an item to someone by clicking the "Add Item" link at the bottom</span>
+   <%end%>
 </div>
 
 <div id="loanable" class="itemsdiv round">
@@ -48,7 +52,8 @@
 </div>
 
 <div id="borrowed" class="itemsdiv round">
-   <table class="items">
+  <% if !@borrow_items.nil? && !@borrow_items.empty? %>
+    <table class="items">
       <tr>
       <th>Item</th>
       <th>Owner</th>
@@ -74,6 +79,9 @@
         <%end%>
     </tr>
     </table>
+  <%else%>
+      <span>You are not borrowing anything right now.</span>
+  <%end%>
 </div>
 
 
